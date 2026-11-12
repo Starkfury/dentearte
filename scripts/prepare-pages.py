@@ -1,5 +1,8 @@
-"""Prepare the public DenteArte preview from the committed static export."""
+"""Prepare the committed DenteArte export for GitHub Pages."""
 from pathlib import Path
+from urllib.parse import quote
+from xml.etree import ElementTree
+import json
 import re
 import shutil
 
@@ -7,36 +10,70 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "_site"
 ASSETS = ROOT / "assets" / "runtime"
-PRIVATE_VIDEO = "apresentacao.*.mp4"
+BASE_URL = "https://www.dentearte.com.br/"
+SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
-def replace_presentation(html: str) -> str:
-    if 'id="video-apresentacao"' not in html:
+def canonical_url(filename: str) -> str:
+    return BASE_URL + ("" if filename == "index.html" else quote(filename))
+
+
+def dentist_json_ld() -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "@id": BASE_URL + "#clinica",
+        "name": "DenteArte Odontologia",
+        "url": BASE_URL,
+        "telephone": "+5511973125799",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Paulista, 726, Conjunto 103, 1º andar",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "postalCode": "01310-100",
+            "addressCountry": "BR",
+        },
+    }
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False) + "</script>"
+
+
+def prepare_html(source: Path) -> str:
+    html = source.read_text(encoding="utf-8")
+    html = html.replace("https://www.dentearte.com/", BASE_URL).replace(
+        "Cerqueira César · São Paulo — SP", "Bela Vista · São Paulo — SP · CEP 01310-100"
+    )
+    html = re.sub(r'\s*<p class="review-note">[^<]*</p>', "", html)
+    if source.name == "404.html":
         return html
 
-    intro = re.search(
-        r'(?P<start>  <div class="da-intro-actions">).*?(?=</section>)',
-        html,
-        re.DOTALL,
+    html = html.replace(
+        '<meta name="robots" content="noindex, nofollow">',
+        '<meta name="robots" content="index, follow">',
     )
-    if intro is None or 'id="video-apresentacao"' not in intro[0]:
-        raise ValueError("Could not identify the presentation section in index.html.")
-    poster = re.search(r'poster="(assets/runtime/apresentacao-capa\.[^"]+\.webp)"', intro[0])
-    if poster is None or not (ROOT / poster[1]).is_file():
-        raise ValueError("The presentation portrait is missing from the export.")
+    url = canonical_url(source.name)
+    metadata = []
+    if '<link rel="canonical"' not in html:
+        metadata.append(f'<link rel="canonical" href="{url}">')
+    if '<meta property="og:url"' not in html:
+        metadata.append(f'<meta property="og:url" content="{url}">')
+    if source.name == "index.html" and 'application/ld+json' not in html:
+        metadata.append(dentist_json_ld())
+    if metadata:
+        html = html.replace("</head>", "\n  " + "\n  ".join(metadata) + "\n</head>", 1)
+    return html
 
-    replacement = (
-        '  <div class="da-intro-actions"><a class="button button-blue" href="profissional.html">'
-        'Conheça a trajetória do Dr. Leon</a><a class="text-link" href="clinica.html#ambiente">'
-        'Conheça a clínica</a></div></div>\n'
-        '  <div class="da-intro-film"><figure class="da-media-card"><div class="da-media-shell">'
-        f'<img class="da-video" src="{poster[1]}" alt="Dr. Leon Daghlian no consultório da DenteArte" '
-        'width="540" height="960" loading="lazy" decoding="async"></div>'
-        '<figcaption><strong>Conheça a DenteArte</strong><span>Dr. Leon Daghlian no consultório.</span>'
-        '</figcaption></figure></div>\n'
+
+def write_sitemap(pages: list[Path]) -> None:
+    urlset = ElementTree.Element("urlset", xmlns=SITEMAP_NAMESPACE)
+    for page in pages:
+        if page.name != "404.html":
+            url = ElementTree.SubElement(urlset, "url")
+            ElementTree.SubElement(url, "loc").text = canonical_url(page.name)
+    ElementTree.indent(urlset)
+    ElementTree.ElementTree(urlset).write(
+        OUTPUT / "sitemap.xml", encoding="utf-8", xml_declaration=True
     )
-    html = html[:intro.start()] + replacement + html[intro.end():]
-    return re.sub(r'<script src="assets/runtime/media\.[^"]+\.js" defer></script>\n?', "", html)
 
 
 def prepare_pages() -> None:
@@ -44,23 +81,15 @@ def prepare_pages() -> None:
         raise ValueError("The committed export must include index.html and assets/runtime.")
 
     OUTPUT.mkdir()
-    shutil.copytree(ASSETS, OUTPUT / "assets" / "runtime", ignore=shutil.ignore_patterns(PRIVATE_VIDEO))
-    shutil.copy2(ROOT / "robots.txt", OUTPUT / "robots.txt")
-    for source in sorted(ROOT.glob("*.html")):
-        html = source.read_text(encoding="utf-8")
-        html = (
-            html.replace("https://www.dentearte.com/", "https://www.dentearte.com.br/")
-            .replace("Cerqueira César · São Paulo — SP", "Bela Vista · São Paulo — SP · CEP 01310-100")
-            .replace(
-                "Os vídeos de apresentação, recepção, consultório e entrada",
-                "Os vídeos da recepção, do consultório e da entrada",
-            )
-        )
-        if source.name == "index.html":
-            html = replace_presentation(html)
-        if re.search(r'apresentacao\.[^"\s]+\.mp4', html):
-            raise ValueError(f"The presentation video is still referenced by {source.name}.")
-        (OUTPUT / source.name).write_text(html, encoding="utf-8")
+    shutil.copytree(ASSETS, OUTPUT / "assets" / "runtime")
+    pages = sorted(ROOT.glob("*.html"))
+    for source in pages:
+        (OUTPUT / source.name).write_text(prepare_html(source), encoding="utf-8")
+
+    write_sitemap(pages)
+    (OUTPUT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nSitemap: {BASE_URL}sitemap.xml\n", encoding="utf-8"
+    )
 
 
 if __name__ == "__main__":
