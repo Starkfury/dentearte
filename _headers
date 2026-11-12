@@ -1,0 +1,186 @@
+# Gerado automaticamente. Suporte depende da hospedagem.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' https://i.ytimg.com; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Robots-Tag: noindex, nofollow
+/
+  Cache-Control: no-cache
+/robots.txt
+  Cache-Control: no-cache
+/sitemap.xml
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/index
+  Cache-Control: no-cache
+/clinica.html
+  Cache-Control: no-cache
+/clinica
+  Cache-Control: no-cache
+/profissional.html
+  Cache-Control: no-cache
+/profissional
+  Cache-Control: no-cache
+/tratamentos.html
+  Cache-Control: no-cache
+/tratamentos
+  Cache-Control: no-cache
+/duvidas.html
+  Cache-Control: no-cache
+/duvidas
+  Cache-Control: no-cache
+/contato.html
+  Cache-Control: no-cache
+/contato
+  Cache-Control: no-cache
+/tratamento-*
+  Cache-Control: no-cache
+/artigos.html
+  Cache-Control: no-cache
+/artigos
+  Cache-Control: no-cache
+/privacidade.html
+  Cache-Control: no-cache
+/privacidade
+  Cache-Control: no-cache
+/artigo-*
+  Cache-Control: no-cache
+/404.html
+  Cache-Control: no-cache
+/404
+  Cache-Control: no-cache
+/assets/runtime/app.6efefcf47bba2258.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/apresentacao-capa.09a3479719174597.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/apresentacao.948035d2e2fa01c4.mp4
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/articles.09c9d07a1c6355bc.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/check-up.b60db12f8bc8ec4d.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/consultorio-capa.40778b583a662027.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/consultorio.261df83db1b0993e.mp4
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/contact.c2b7f2dbe851e754.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/dentearte-odontologia.8fee840954c250de.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/directory.65a8af8b80c2072c.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/endodontia.92a02b798271915f.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/entrada.11925bf595bf7132.mp4
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/estetica-dental.58a351f9aeed0875.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/favicon.35aedf105b13063a.png
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-ambiente-odontologico-480.e122d20e1cb3cee9.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-ambiente-odontologico-768.a4efd353753afddc.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-ambiente-odontologico.65e059bf5c68c504.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-preparo-instrumentos-480.4fd8b808291e8464.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-preparo-instrumentos-768.7e96cbb2be14a8b4.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-preparo-instrumentos.7c1ac6ef17528716.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-refletor-odontologico-480.d2e5d5af0e0e1ce4.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-refletor-odontologico-768.822fd40a1a928121.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/galeria-clinica-refletor-odontologico.481d5ba3d827ad04.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/implantodontia.1fc6ed169a459009.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/implantodontia.a167ea431ef788b4.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-clinica-480.353297f7e9f30dda.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-clinica-768.373d5eafeaf4bade.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-clinica.3a271511ac944e57.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-duvidas-480.decdf08528c13b9f.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-duvidas-768.cf863b2a2fcfc519.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-duvidas.524b4b051af4cb72.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-home-480.ec68aa6f1c3f80e4.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-home-768.adf15c10898aa76a.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-home.148a101b73c4b427.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-orientacao-480.15ec038d33190c57.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-orientacao-768.cbcdd72c1188327e.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-orientacao.1504a0137aba3f16.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-profissional-480.19f14e84dc575c90.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-profissional-768.5496ac88f60e1366.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/leon-profissional.a610e7401771569e.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/media.e049b5c25b00d637.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/ortodontia.4e6192ca11a2cd31.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/ortodontia.8285cbd03c919c64.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/ortopedia-funcional.61e258c09fccf514.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/periodontia.e7a1c67bda035266.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/predio-726-360.b4d9cd8baf8b3e3d.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/predio-726-540.8e04afb987f40701.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/predio-726.74c7e734df3b6b20.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-check-up-480.0ff8ea624b097f6c.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-endodontia-480.1f6c7c1ebd5f305d.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-estetica-dental-480.7ece9cc44b56e4a6.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-implantodontia-480.cd39f3de7450bc07.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-ortodontia-480.140c5ba0cddbc201.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-periodontia-480.dbf5ccb3fca4445e.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/procedimentos-proteses-480.f9229423f60c2a7e.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/proteses.a13f75948cf9cf0a.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/recepcao-capa.a0bf2dba66a3a376.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/recepcao.43a574a2865a60eb.mp4
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/sections.3977c58650f50181.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/styles-home.a807d218c410e4f5.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/styles-media.130bd021838220e7.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/styles.f822cd32fe6638b9.css
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/tratamentos-implantodontia-480.143614f6ed441ddf.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/tratamentos-ortodontia-480.391642be3a689892.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/runtime/tratamentos-ortopedia-funcional-480.c8b0a27391415779.webp
+  Cache-Control: public, max-age=31536000, immutable
